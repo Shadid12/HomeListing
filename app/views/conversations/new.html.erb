@@ -1,0 +1,34 @@
+</br>
+</br>
+<div class="row">
+        <div class="col-lg-12 text-center">
+            <h2>Say hi !!! to <%= @reciever.name %></h2>
+            <hr class="star-primary">
+        </div>
+</div>
+
+
+<div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <%= form_tag conversations_path, method: :post do %>
+                                <%= hidden_field_tag :user_id, @reciever.id %>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <%= text_field_tag :subject, nil, class: "form-control", placeholder: "Subject" %>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <%= text_area_tag :body, nil, class: "form-control", placeholder: "Leave a comment" %>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <%= submit_tag "Send Message", class: "btn btn-success btn-lg" %>
+                            </div>
+                        </div>
+                    <% end %>
+</div>
+            </div>

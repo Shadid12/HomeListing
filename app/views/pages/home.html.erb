@@ -1,0 +1,19 @@
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-text">
+                        <span class="name"> HomeListing Demo 1 </span>
+                        <hr class="star-light">
+                        <% if user_signed_in? %>
+                           <span class="skills"> Welcome <%= current_user.name %> !! </span>
+                        <% end %> 
+                        <span class="skills">Your one stop buy and sell</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</body>

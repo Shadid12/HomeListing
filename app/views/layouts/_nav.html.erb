@@ -1,0 +1,40 @@
+<!-- Navigation -->
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="/">Home Listing Service</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <% if user_signed_in? %>
+                        <li class="page-scroll">
+                            <%= link_to "New Post", new_post_path, method: :get, class:"" %>
+                        </li>
+                        <li class="page-scroll">
+                            <%= link_to "Inbox", conversations_path, method: :get, class:"" %>
+                        </li>
+                        <li class="page-scroll">
+                            <%= link_to "Show Listings", posts_path, method: :get, class:"" %>
+                        </li>
+                        <li class="page-scroll">
+                            <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"" %>
+                        </li>
+                        <li class="page-scroll">
+                            <%= link_to "Edit Profile", edit_user_registration_path, class:"" %>
+                        </li>
+                    <% else %>
+                        <li class="page-scroll" ><%= link_to "Sign Up", new_user_registration_path, class: "" %></li>
+                        <li class="page-scroll" ><%= link_to "Log In", new_user_session_path, class: "" %></li>
+                    <% end %>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+</nav>

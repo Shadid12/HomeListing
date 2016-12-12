@@ -1,0 +1,15 @@
+<h1> All Posts </h1>
+
+<% @posts.each do |p| %>
+    <div>
+        <h3><%= link_to p.title, post_path(p.id) %></h3>
+        <p><%= p.description %></p>
+        Created By: <%= p.user.name %> | <%= time_ago_in_words(p.created_at) %> ago
+    </div>
+    <%= image_tag p.image.thumb %>
+    <%  if current_user == p.user %>
+        
+    <% else %>
+        <span><%= link_to "Send a Message", new_conversation_path(@reciever, :reciever_id => p.user.id) %></span> |
+    <% end %>
+<% end %>

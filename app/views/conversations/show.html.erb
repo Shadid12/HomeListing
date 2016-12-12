@@ -1,0 +1,25 @@
+</br>
+</br>
+<div class="row">
+    <div class="col-lg-12 text-center">
+        <h1><%= @conversation.subject %></h1>
+        <hr class="star-primary">
+    </div>
+    <div class="col-lg-12 text-center">
+        <% @conversation.receipts_for(current_user).each do |r| %>
+        <div>
+            <small><%= r.message.sender.name %> : </small>
+            <%= r.message.body %>
+        </div>
+        <% end %>        
+    </div>
+</div>
+<!--Reply-->
+</br>
+<div class="col-lg-12 text-center">
+    <strong>Reply</strong>
+    <%= form_tag conversation_messages_path(@conversation), method: :post do %>
+        <div><%= text_area_tag :body %></div>
+        <%= submit_tag %>
+    <% end %>
+</div>

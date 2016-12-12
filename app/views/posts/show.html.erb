@@ -1,0 +1,15 @@
+<br></br>
+<br></br>
+<div>
+<h1><%= @post.title %> </h1>
+<p>
+    <%= @post.description %>
+</p>
+<%= image_tag @post.image %>
+<%  if current_user == @post.user %>
+    <%= link_to "Delete Post", post_path, method: :delete, class:"" %>
+<% else %>
+    Contact Seller: <span><%= link_to "Send a Message", new_conversation_path(@reciever, :reciever_id => @post.user.id) %></span>
+<%  end %>
+</div>
+
